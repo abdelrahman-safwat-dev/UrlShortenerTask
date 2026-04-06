@@ -18,7 +18,8 @@ namespace UrlShortener.Utilities.Bitly.Services
         private readonly ILogger<BitlyUrlShortenerService> _logger;
         private static readonly JsonSerializerOptions _serializerOptions = new()
         {
-            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower
+            // C#: PascalCase, Json: snake_case
+            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower      //instead of using [JsonPropertyName] on each property, and it works both ways
         };
 
         public BitlyUrlShortenerService(HttpClient httpClient, ILogger<BitlyUrlShortenerService> logger)

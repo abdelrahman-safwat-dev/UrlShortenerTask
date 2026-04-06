@@ -11,11 +11,11 @@ namespace UrlShortener.Utilities.Bitly.Factory
         {
             switch (statusCode)
             {
-                case HttpStatusCode.BadRequest:
-                case HttpStatusCode.UnprocessableEntity:
+                case HttpStatusCode.BadRequest:             //syntax wise
+                case HttpStatusCode.UnprocessableEntity:    //semantic wise
                     return new BitlyBadRequestException(statusCode, error);
                 
-                case HttpStatusCode.Forbidden:
+                case HttpStatusCode.Forbidden:              //unauthorized
                     return new BitlyForbiddenException(statusCode, error);
 
                 case (HttpStatusCode)429: //monthly limit exception

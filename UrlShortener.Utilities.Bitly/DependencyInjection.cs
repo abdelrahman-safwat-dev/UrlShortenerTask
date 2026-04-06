@@ -21,7 +21,7 @@ namespace UrlShortener.Utilities.Bitly
                     var options = sp.GetRequiredService<IOptions<BitlyOptions>>().Value;
                     client.BaseAddress = new Uri(options.BaseUrl);
                     client.DefaultRequestHeaders.Authorization =
-                        new AuthenticationHeaderValue("Bearer", options.AccessToken);
+                        new AuthenticationHeaderValue("Bearer", options.AccessToken);   // Ideally I think i should use delegate handler?
                 });
 
             return services;
